@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro - PetShop Happy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="p-3 bg-light">
+    <div class="container d-flex align-items-center">
+      <img src="A_logo_for_&quot;PetShop_Happy&quot;_features_a_stylized_ill.png" alt="PetShop Happy Logo" id="logo" width="60">
+      <h1 class="ms-3">PetShop Happy</h1>
+      <nav class="ms-auto">
+        <a href="index.html" class="me-2">Início</a>
+        <a href="produtos.html" class="me-2">Produtos</a>
+        <a href="servicos.html" class="me-2">Serviços</a>
+        <a href="cadastro.html">Cadastro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container my-4">
+    <h2>Cadastro de Cliente, Pet e Agendamento</h2>
+
+    <form id="cadastroForm" novalidate>
+      <fieldset class="border p-3 mb-3">
+        <legend>Dados do Cliente</legend>
+
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome completo *</label>
+          <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome completo" required>
+          <div class="invalid-feedback">Por favor, informe seu nome.</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cpf" class="form-label">CPF *</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+            <div class="invalid-feedback">CPF é obrigatório.</div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="telefone" class="form-label">Telefone *</label>
+            <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(51) 9xxxx-xxxx" required>
+            <div class="invalid-feedback">Telefone é obrigatório.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail *</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com" required>
+          <div class="invalid-feedback">E-mail válido é obrigatório.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="endereco" class="form-label">Endereço</label>
+          <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, número, bairro">
+        </div>
+
+        <div class="mb-3">
+          <span class="me-2">Sexo:</span>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sexo" id="sexoM" value="M">
+            <label class="form-check-label" for="sexoM">Masculino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sexo" id="sexoF" value="F">
+            <label class="form-check-label" for="sexoF">Feminino</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="border p-3 mb-3">
+        <legend>Dados do Pet</legend>
+
+        <div class="mb-3">
+          <label for="nomePet" class="form-label">Nome do Pet *</label>
+          <input type="text" class="form-control" id="nomePet" name="nomePet" placeholder="Nome do seu pet" required>
+          <div class="invalid-feedback">Nome do pet é obrigatório.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="raca" class="form-label">Raça</label>
+          <input type="text" class="form-control" id="raca" name="raca" placeholder="Ex: SRD, Labrador">
+        </div>
+
+        <div class="mb-3">
+          <label for="idade" class="form-label">Idade (anos)</label>
+          <input type="number" class="form-control" id="idade" name="idade" min="0" max="25" placeholder="0">
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="vacinado" name="vacinado">
+          <label class="form-check-label" for="vacinado">Vacinado</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="border p-3 mb-3">
+        <legend>Agendamento</legend>
+
+        <div class="mb-3">
+          <label class="form-label">Serviço desejado *</label>
+          <select class="form-select" id="servico" required>
+            <option value="">-- selecione --</option>
+            <option value="banho">Banho simples</option>
+            <option value="tosa">Tosa completa</option>
+            <option value="banho-tosa">Banho e Tosa</option>
+          </select>
+          <div class="invalid-feedback">Selecione um serviço.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Método de agendamento *</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="metodo" id="telebusca" value="telebusca" required>
+              <label class="form-check-label" for="telebusca">Tele-busca</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="metodo" id="entrega-local" value="entrega" required>
+              <label class="form-check-label" for="entrega-local">Entrega no local (cliente leva)</label>
+            </div>
+          </div>
+          <div class="invalid-feedback">Escolha um método.</div>
+        </div>
+
+        <div id="telebuscaEndereco" style="display:none;">
+          <div class="mb-3">
+            <label for="enderecoBuscar" class="form-label">Endereço para busca</label>
+            <input type="text" class="form-control" id="enderecoBuscar" name="enderecoBuscar" placeholder="Rua, número, bairro">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="dataAgendamento" class="form-label">Data *</label>
+            <input type="date" class="form-control" id="dataAgendamento" name="dataAgendamento" required>
+            <div class="invalid-feedback">Escolha uma data.</div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="horaAgendamento" class="form-label">Hora *</label>
+            <input type="time" class="form-control" id="horaAgendamento" name="horaAgendamento" required>
+            <div class="invalid-feedback">Escolha um horário.</div>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary">Enviar Cadastro e Agendamento</button>
+    </form>
+
+    <div id="mensagemSucesso" class="alert alert-success mt-3" role="alert" style="display:none;"></div>
+  </main>
+
+  <footer class="text-center py-3 bg-light">
+    <p>© 2025 PetShop Happy | contato@petshophappy.com</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

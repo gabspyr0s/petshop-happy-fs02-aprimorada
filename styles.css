@@ -1,0 +1,28 @@
+/* styles.css - pequenas melhorias visuais para o projeto PetShop Happy */
+/* Paleta escolhida: azul claro como fundo para transmitir tranquilidade */
+body {
+  background-color: #E6F7FF;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Logo com borda arredondada */
+#logo {
+  border-radius: 8px;
+}
+
+/* Ajuste das imagens dos cards para manter altura fixa */
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+
+/* Pequeno espaçamento para legendas do carousel */
+.carousel-caption h5 {
+  font-weight: 700;
+}
+
+/* Estilo para footer */
+footer {
+  background: #f8f9fa;
+}
